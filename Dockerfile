@@ -1,4 +1,4 @@
-# Use Node 18 as parent image
+# Use Node.js 18 as the parent image
 FROM node:18
 
 # Change the working directory on the Docker image to /app
@@ -12,6 +12,9 @@ RUN npm install
 
 # Copy the rest of project files into this image
 COPY . .
+
+# Copy .env file if it exists
+COPY .env .env
 
 # Expose application port
 EXPOSE 3000
